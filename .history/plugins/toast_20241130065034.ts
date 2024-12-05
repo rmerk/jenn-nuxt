@@ -1,0 +1,10 @@
+import Toast from 'vue-toast-notification'
+import 'vue-toast-notification/dist/theme-bootstrap.css';
+
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.use(Toast, {
+    position: 'top-center',
+    duration: 2000,
+    
+  })
+})

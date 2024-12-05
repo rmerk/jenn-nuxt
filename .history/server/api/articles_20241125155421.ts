@@ -1,0 +1,11 @@
+import { defineEventHandler } from 'h3'
+import useStrapiClient from '@nuxtjs/strapi'
+
+export default defineEventHandler(async (event) => {
+  const strapi = useStrapi
+  const articles = await strapi.find('articles', {
+    populate: '*',
+    sort: ['publishedAt:desc']
+  })
+  return articles
+})
