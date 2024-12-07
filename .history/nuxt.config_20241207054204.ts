@@ -60,6 +60,9 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
+        strapi: { // nuxt/strapi options available server-side
+            url: 'http://localhost:1337',
+        },
         public: {
             SQUARE_APP_ID: '',
             SQUARE_LOCATION_ID: '',

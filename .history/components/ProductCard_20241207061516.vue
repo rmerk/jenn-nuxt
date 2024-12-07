@@ -8,6 +8,8 @@ const props = defineProps({
     },
 });
 
+const config = useRuntimeConfig();
+
 const quantity = ref(0);
 const cartStore = useCartStore();
 
@@ -17,10 +19,6 @@ function updateQuantity(delta) {
         quantity.value = newQuantity;
     }
 }
-
-const mediaUrl = computed(() => {
-    return STRAPI_URL + props.product.productImage?.url;
-});
 
 function addToCart() {
     if (quantity.value > 0) {
@@ -36,8 +34,9 @@ function addToCart() {
 <template>
     <UCard>
         <template #header>
+            {{ config.strapi.url }}
             <img
-                :src="mediaUrl"
+                :src="product.productImage?.url || 'https://placehold.co/800x400?text=No+Image'"
                 :alt="product.name"
                 class="w-full h-48 object-cover"
             >
@@ -69,7 +68,7 @@ function addToCart() {
                 </UBadge>
             </div>
 
-            <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
                 <UButtonGroup>
                     <UButton
                         icon="i-heroicons-minus"
@@ -95,6 +94,7 @@ function addToCart() {
                 <UButton
                     color="amber"
                     :disabled="quantity === 0"
+                    block
                     @click="addToCart"
                 >
                     Add to Cart

@@ -31,7 +31,7 @@ function getOrderProducts(order: Order) {
         const product = products.value?.data?.find(p => p.id === orderItem.id);
         return {
             ...product,
-            quantity: orderItem.id ? order.quantities[orderItem.id] : 0,
+            quantity: orderItem.quantity,
         };
     });
 }

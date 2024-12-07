@@ -1,6 +1,8 @@
 <script setup>
 import { useCartStore } from '~/stores/cart';
 
+const strapiUrl = import.meta.env.VITE_STRAPI_URL;
+
 const props = defineProps({
     product: {
         type: Object,
@@ -18,10 +20,6 @@ function updateQuantity(delta) {
     }
 }
 
-const mediaUrl = computed(() => {
-    return STRAPI_URL + props.product.productImage?.url;
-});
-
 function addToCart() {
     if (quantity.value > 0) {
         cartStore.addItem({
@@ -37,7 +35,7 @@ function addToCart() {
     <UCard>
         <template #header>
             <img
-                :src="mediaUrl"
+                :src="product.productImage?.url || 'https://placehold.co/800x400?text=No+Image'"
                 :alt="product.name"
                 class="w-full h-48 object-cover"
             >
@@ -69,7 +67,7 @@ function addToCart() {
                 </UBadge>
             </div>
 
-            <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
                 <UButtonGroup>
                     <UButton
                         icon="i-heroicons-minus"
@@ -95,6 +93,7 @@ function addToCart() {
                 <UButton
                     color="amber"
                     :disabled="quantity === 0"
+                    block
                     @click="addToCart"
                 >
                     Add to Cart

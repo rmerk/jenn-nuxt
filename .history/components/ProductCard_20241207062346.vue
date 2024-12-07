@@ -69,7 +69,7 @@ function addToCart() {
                 </UBadge>
             </div>
 
-            <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
                 <UButtonGroup>
                     <UButton
                         icon="i-heroicons-minus"

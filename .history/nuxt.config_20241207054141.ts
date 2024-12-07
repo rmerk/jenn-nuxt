@@ -1,5 +1,3 @@
-import process from 'node:process';
-
 export default defineNuxtConfig({
     modules: ['@nuxtjs/strapi', '@pinia/nuxt', '@nuxt/ui', '@nuxt/eslint'],
 
@@ -60,6 +58,9 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
+        strapi: { // nuxt/strapi options available server-side
+            url: 'http://localhost:1337',
+        },
         public: {
             SQUARE_APP_ID: '',
             SQUARE_LOCATION_ID: '',

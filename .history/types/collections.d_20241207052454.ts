@@ -170,6 +170,7 @@ export interface Order {
 };
 
 export interface Product {
+  category: string;
   id?: number;
   documentId?: string;
   createdAt?: Date | string;

@@ -571,6 +571,36 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLeadFormLeadForm extends Struct.CollectionTypeSchema {
+  collectionName: 'lead_forms';
+  info: {
+    displayName: 'LeadForm';
+    pluralName: 'lead-forms';
+    singularName: 'lead-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lead-form.lead-form'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   collectionName: 'orders';
   info: {
@@ -612,6 +642,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     orderTotal: Schema.Attribute.Decimal & Schema.Attribute.Required;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    quantities: Schema.Attribute.JSON & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -652,7 +683,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String &
+    description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -696,12 +727,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    quantity: Schema.Attribute.Integer &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     slug: Schema.Attribute.UID<'productName'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1238,6 +1263,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::fulfillment.fulfillment': ApiFulfillmentFulfillment;
       'api::global.global': ApiGlobalGlobal;
+      'api::lead-form.lead-form': ApiLeadFormLeadForm;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;

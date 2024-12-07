@@ -37,7 +37,7 @@ function addToCart() {
     <UCard>
         <template #header>
             <img
-                :src="mediaUrl"
+                :src="product.productImage?.url || 'https://placehold.co/800x400?text=No+Image'"
                 :alt="product.name"
                 class="w-full h-48 object-cover"
             >
@@ -69,7 +69,7 @@ function addToCart() {
                 </UBadge>
             </div>
 
-            <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
                 <UButtonGroup>
                     <UButton
                         icon="i-heroicons-minus"
@@ -95,6 +95,7 @@ function addToCart() {
                 <UButton
                     color="amber"
                     :disabled="quantity === 0"
+                    block
                     @click="addToCart"
                 >
                     Add to Cart
