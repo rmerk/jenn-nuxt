@@ -32,6 +32,11 @@ function getProductImageUrl(url: string) {
                     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         <img v-if="product?.productImage" :src="getProductImageUrl(product.productImage.url)" :alt="product.productName" class="w-full h-48 object-contain">
                         <div class="px-6">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    {{ product.productName }}
+                                </h3>
+                            </div>
                             <p class="mt-2 text-gray-600">
                                 {{ product.description }}
                             </p>

@@ -51,11 +51,12 @@ function handleAuthorImage(path?: string) {
                                 }}
                             </p>
                             <NuxtLink
-                                :to="`/blog/${article.documentId}`"
+                                :to="`/blog/${article.id}`"
                                 class="mt-2 block"
                             >
                                 <p class="text-xl font-semibold text-gray-900">
-                                    {{ article.title }}
+                                    {{ article.title
+                                    }}
                                 </p>
                                 <p class="mt-3 text-base text-gray-500">
                                     {{ article.description }}

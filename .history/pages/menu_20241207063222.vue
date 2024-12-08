@@ -6,10 +6,6 @@ const { find } = useStrapi();
 const { data: products } = await useAsyncData('products', () => find<Product>('products', {
     populate: '*',
 }));
-
-function getProductImageUrl(url: string) {
-    return STRAPI_URL + url;
-}
 </script>
 
 <template>
@@ -30,8 +26,14 @@ function getProductImageUrl(url: string) {
                         {{ product.productName }}
                     </h2>
                     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        <img v-if="product?.productImage" :src="getProductImageUrl(product.productImage.url)" :alt="product.productName" class="w-full h-48 object-contain">
-                        <div class="px-6">
+                        <img v-if="product.pr" :src="product.image" :alt="product.name" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    {{ product.name }}
+                                </h3>
+                                <span class="text-amber-600 font-medium">${{ product.price }}</span>
+                            </div>
                             <p class="mt-2 text-gray-600">
                                 {{ product.description }}
                             </p>

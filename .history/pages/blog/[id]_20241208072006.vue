@@ -22,7 +22,7 @@ const { data: article } = await useAsyncData(
 
                 <div class="mt-6 flex items-center">
                     <div class="flex-shrink-0">
-                        <img class="h-10 w-10 rounded-full" :src="getStrapiURL(article.data.author?.avatar?.url)" :alt="article.data.author?.name">
+                        <img class="h-10 w-10 rounded-full" :src="article.data.author?.avatar?.url" :alt="article.data.author?.name">
                     </div>
                     <div class="ml-3">
                         <p class="text-sm font-medium text-gray-900">
@@ -37,7 +37,7 @@ const { data: article } = await useAsyncData(
                 <div class="mt-8">
                     <img
                         v-if="article.data.cover?.url"
-                        :src="getStrapiURL(article.data.cover.url)"
+                        :src="article.data.cover.url"
                         :alt="article.data.cover.caption"
                         class="w-full h-96 object-cover rounded-lg"
                     >

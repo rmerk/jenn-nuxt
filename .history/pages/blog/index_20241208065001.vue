@@ -9,13 +9,6 @@ const { data: articles } = useAsyncData(
         populate: '*',
     }),
 );
-
-function handleAuthorImage(path?: string) {
-    if (!path) {
-        return getGenericAvatar();
-    }
-    return getStrapiURL(path);
-}
 </script>
 
 <template>
@@ -39,7 +32,7 @@ function handleAuthorImage(path?: string) {
                     <div class="flex-shrink-0">
                         <img
                             class="h-48 w-full object-cover"
-                            :src="getStrapiURL(article?.cover?.url)"
+                            :src="article?.cover?.url"
                             :alt="article.title"
                         >
                     </div>
@@ -51,11 +44,12 @@ function handleAuthorImage(path?: string) {
                                 }}
                             </p>
                             <NuxtLink
-                                :to="`/blog/${article.documentId}`"
+                                :to="`/blog/${article.id}`"
                                 class="mt-2 block"
                             >
                                 <p class="text-xl font-semibold text-gray-900">
-                                    {{ article.title }}
+                                    {{ article.title
+                                    }}
                                 </p>
                                 <p class="mt-3 text-base text-gray-500">
                                     {{ article.description }}
@@ -67,7 +61,7 @@ function handleAuthorImage(path?: string) {
                                 <span class="sr-only">{{ article.author }}</span>
                                 <img
                                     class="h-10 w-10 rounded-full"
-                                    :src="handleAuthorImage(article?.cover?.formats?.thumbnail.url)"
+                                    :src="getStrapiURL()"
                                     :alt="article?.cover?.alternativeText"
                                 >
                             </div>

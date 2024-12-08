@@ -3,9 +3,8 @@ export const STRAPI_URL = import.meta.dev
     : 'https://sweet-delights-bakery.herokuapp.com/';
 
 export function getStrapiURL(path?: string) {
+    if (!path) {
+        return '/female-avatar.png';
+    }
     return STRAPI_URL + path;
-}
-
-export function getGenericAvatar() {
-    return '/female-avatar.png';
 }
