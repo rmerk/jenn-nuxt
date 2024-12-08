@@ -9,7 +9,7 @@ const { data: article } = await useAsyncData(
     () => findOne<Article>('articles', route.params.id as string, {
         populate: {
             author: {
-                populate: 'avatar',
+                populate: '*',
             },
         },
     }),

@@ -68,17 +68,12 @@ export default defineNuxtConfig({
     },
 
     imports: {
-        dirs: ['server/**/*'],
+        dirs: ['server/**/*.ts'],
     },
 
     compatibilityDate: '2024-11-21',
 
     typescript: {
-        tsConfig: {
-            compilerOptions: {
-                baseUrl: '.',
-            },
-        },
         typeCheck: true,
     },
 

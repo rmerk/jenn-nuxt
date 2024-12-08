@@ -7,11 +7,8 @@ const { findOne } = useStrapi();
 const { data: article } = await useAsyncData(
     'articles',
     () => findOne<Article>('articles', route.params.id as string, {
-        populate: {
-            author: {
-                populate: 'avatar',
-            },
-        },
+        populate: '*',
+        populate: ['author', 'articles'],
     }),
 );
 </script>

@@ -74,11 +74,6 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-21',
 
     typescript: {
-        tsConfig: {
-            compilerOptions: {
-                baseUrl: '.',
-            },
-        },
         typeCheck: true,
     },
 
