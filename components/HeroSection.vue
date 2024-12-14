@@ -1,32 +1,48 @@
 <template>
-    <section class="relative bg-white py-10 md:py-32">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="text-center md:text-left">
-                <h1 class="text-4xl font-serif font-bold text-gray-900 sm:text-5xl md:text-6xl">
-                    We bake tasty bread
-                </h1>
-                <p class="mt-4 text-lg text-gray-600">
-                    Fresh bread crafted using natural ingredients with free delivering at your home
+    <section class="flex flex-col" style="min-height: calc(100vh - 4rem)">
+        <div class="relative flex grow flex-col justify-center bg-green-900 text-white">
+            <div class="absolute right-0 top-0 p-8">
+                <p class="max-w-xs text-sm">
+                    A delightful treat that combines the comforting charm of freshly baked cookies with the rich, luxurious and mouthwatering fillings.
                 </p>
-                <div class="mt-8">
-                    <UButton
-                        size="xl"
-                        color="amber"
-                        variant="solid"
-                        to="/menu"
-                        class="w-full sm:w-auto"
-                    >
-                        Order bread
-                    </UButton>
+                <a href="#" class="mt-2 inline-block text-sm underline">
+                    Get more details <i class="fas fa-arrow-right" />
+                </a>
+            </div>
+            <div class="absolute bottom-0 left-0 p-8">
+                <div class="flex items-center">
+                    <div class="rounded-full border border-white p-2">
+                        <span class="text-xs">
+                            BEST SELLER
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-center">
+            <div class="hero-image">
                 <img
-                    src="/sourdoughBread.jpg"
-                    alt="Fresh baked bread"
-                    class="w-full max-w-lg rounded-full object-cover shadow-xl"
+                    src="/sourdough-hero-image.webp"
+                    alt="Stack of freshly bakes cookies with ice cream"
+                    class="h-auto max-w-4xl object-contain"
                 >
             </div>
         </div>
+        <div class="white-bar" />
     </section>
 </template>
+
+<style scoped>
+.white-bar {
+    height: 25vh;
+    background-color: #f6f2ee;
+    width: 100%;
+}
+
+.hero-image {
+    position: absolute;
+    bottom: -140px;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: fit-content;
+}
+</style>

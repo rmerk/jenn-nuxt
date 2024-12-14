@@ -1,7 +1,7 @@
 import process from 'node:process';
 
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/strapi', '@pinia/nuxt', '@nuxt/ui', '@nuxt/eslint', '@nuxtjs/google-fonts'],
+    modules: ['@nuxtjs/strapi', '@pinia/nuxt', '@nuxt/ui', '@nuxt/eslint', '@nuxt/fonts'],
 
     $production: {
         strapi: {
@@ -30,19 +30,9 @@ export default defineNuxtConfig({
         },
     },
 
-    nitro: {
-        esbuild: {
-            options: {
-                target: 'esnext',
-            },
-        },
-    },
+    nitro: { esbuild: { options: { target: 'esnext' } } },
 
-    eslint: {
-        config: {
-            standalone: false,
-        },
-    },
+    eslint: { config: { standalone: false } },
 
     app: {
         head: {
@@ -55,9 +45,7 @@ export default defineNuxtConfig({
         },
     },
 
-    colorMode: {
-        preference: 'light',
-    },
+    colorMode: { preference: 'light' },
 
     runtimeConfig: {
         public: {
@@ -67,28 +55,46 @@ export default defineNuxtConfig({
         },
     },
 
-    imports: {
-        dirs: ['server/**/*'],
-    },
+    imports: { dirs: ['server/**/*'] },
 
     compatibilityDate: '2024-11-21',
 
     typescript: {
-        tsConfig: {
-            compilerOptions: {
-                baseUrl: '.',
-            },
-        },
+        tsConfig: { compilerOptions: { baseUrl: '.' } },
         typeCheck: true,
     },
 
-    pinia: {
-        storesDirs: ['./stores/**/*.ts'],
+    css: [
+        './assets/css/main.css',
+    ],
+
+    fonts: {
+        provider: 'google',
+        assets: { prefix: 'fonts/' },
+        defaults: {
+            weights: [400, 700],
+            styles: ['normal'],
+        },
+        families: [
+            {
+                name: 'Black Mango', // the 'canonical' name of the font used to look it up in a provider database
+                provider: 'local', // you can override the provider on a per-family basis
+                src: '~/assets/fonts/black-mango.ttf',
+                // specific configuration will be used to generate `@font-face` definitions
+                subsets: ['latin'],
+                display: 'swap',
+                weight: 400,
+                style: 'normal',
+                fallbacks: ['Arial'],
+            },
+            {
+                name: 'Darker Grotesque',
+                weights: [400, 500, 700],
+                styles: ['normal', 'italic'],
+                provider: 'google',
+            },
+        ],
     },
 
-    googleFonts: {
-        families: {
-            'Cherry Swash': [400, 700],
-        },
-    },
+    pinia: { storesDirs: ['./stores/**/*.ts'] },
 });

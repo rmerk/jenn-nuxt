@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col bg-white">
+    <div class="flex flex-col bg-white">
         <TheHeader />
         <main class="flex-grow">
             <NuxtPage />
