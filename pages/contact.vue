@@ -26,9 +26,9 @@ async function submitForm() {
 
 <template>
     <div class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <h1 class="text-3xl font-extrabold text-amber-800 text-center">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-3xl">
+                <h1 class="text-primary text-center text-3xl font-extrabold">
                     Contact Us
                 </h1>
 
@@ -67,38 +67,44 @@ async function submitForm() {
 
                     <form class="space-y-6" @submit.prevent="submitForm">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700">
+                                Name
+                            </label>
                             <input
                                 id="name"
                                 v-model="form.name"
                                 type="text"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                                class="focus:border-primary focus:ring-primary mt-1 block w-full rounded-md border-gray-300 shadow-sm"
                             >
                         </div>
 
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700">
+                                Email
+                            </label>
                             <input
                                 id="email"
                                 v-model="form.email"
                                 type="email"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                                class="focus:border-primary focus:ring-primary mt-1 block w-full rounded-md border-gray-300 shadow-sm"
                             >
                         </div>
 
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <label for="message" class="block text-sm font-medium text-gray-700">
+                                Message
+                            </label>
                             <textarea
                                 id="message"
                                 v-model="form.message"
                                 rows="4"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                                class="focus:border-primary focus:ring-primary mt-1 block w-full rounded-md border-gray-300 shadow-sm"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                            class="bg-primary hover:bg-primary focus:ring-primary flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
                         >
                             Send Message
                         </button>

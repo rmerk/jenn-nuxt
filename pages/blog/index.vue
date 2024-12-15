@@ -20,9 +20,9 @@ function handleAuthorImage(path?: string) {
 
 <template>
     <div class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-3xl font-extrabold text-amber-800">
+                <h1 class="text-primary text-3xl font-extrabold">
                     Our Blog
                 </h1>
                 <p class="mt-4 text-xl text-gray-600">
@@ -36,7 +36,7 @@ function handleAuthorImage(path?: string) {
                     :key="article.id"
                     class="flex flex-col overflow-hidden rounded-lg shadow-lg"
                 >
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                         <img
                             class="h-48 w-full object-cover"
                             :src="getStrapiURL(article?.cover?.url)"
@@ -45,7 +45,7 @@ function handleAuthorImage(path?: string) {
                     </div>
                     <div class="flex flex-1 flex-col justify-between bg-white p-6">
                         <div class="flex-1">
-                            <p class="text-sm font-medium text-amber-600">
+                            <p class="text-primary text-sm font-medium">
                                 {{
                                     article?.category?.name
                                 }}
@@ -63,10 +63,12 @@ function handleAuthorImage(path?: string) {
                             </NuxtLink>
                         </div>
                         <div v-if="article.author" class="mt-6 flex items-center">
-                            <div class="flex-shrink-0">
-                                <span class="sr-only">{{ article.author }}</span>
+                            <div class="shrink-0">
+                                <span class="sr-only">
+                                    {{ article.author }}
+                                </span>
                                 <img
-                                    class="h-10 w-10 rounded-full"
+                                    class="size-10 rounded-full"
                                     :src="handleAuthorImage(article?.cover?.formats?.thumbnail.url)"
                                     :alt="article?.cover?.alternativeText"
                                 >
@@ -76,7 +78,9 @@ function handleAuthorImage(path?: string) {
                                     {{ article.author.name }}
                                 </p>
                                 <div class="flex space-x-1 text-sm text-gray-500">
-                                    <time :datetime="article.createdAt?.toLocaleString()">{{ article.createdAt }}</time>
+                                    <time :datetime="article.createdAt?.toLocaleString()">
+                                        {{ article.createdAt }}
+                                    </time>
                                 </div>
                             </div>
                         </div>

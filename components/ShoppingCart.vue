@@ -15,28 +15,28 @@ function checkout() {
 <template>
     <div class="relative">
         <UButton
-            color="gray"
+            color="primary"
             variant="ghost"
-            icon="i-heroicons-shopping-cart"
             @click="isOpen = !isOpen"
         >
+            <UIcon name="i-heroicons-shopping-cart" class="size-5 text-white" />
             <UBadge
                 v-if="cartStore.itemCount > 0"
                 :value="cartStore.itemCount"
-                color="amber"
-                class="absolute -top-1 -right-1"
+                color="primary"
+                class="absolute -right-1 -top-1"
             />
         </UButton>
 
         <UModal v-model="isOpen" :ui="{ width: 'sm:max-w-lg' }">
             <UCard>
                 <template #header>
-                    <div class="flex justify-between items-center">
+                    <div class="flex items-center justify-between">
                         <h3 class="text-lg font-semibold">
                             Shopping Cart
                         </h3>
                         <UButton
-                            color="gray"
+                            color="white"
                             variant="ghost"
                             icon="i-heroicons-x-mark"
                             @click="isOpen = false"
@@ -44,29 +44,33 @@ function checkout() {
                     </div>
                 </template>
 
-                <div v-if="cartStore.items.length === 0" class="text-center py-8">
-                    <UIcon name="i-heroicons-shopping-cart" class="mx-auto h-12 w-12 text-gray-400" />
+                <div v-if="cartStore.items.length === 0" class="py-8 text-center">
+                    <UIcon name="i-heroicons-shopping-cart" class="mx-auto size-12 text-white" />
                     <p class="mt-2">
                         Your cart is empty
                     </p>
                 </div>
 
                 <div v-else class="space-y-4">
-                    <div v-for="item in cartStore.items" :key="item.id" class="flex items-center gap-4">
+                    <div
+                        v-for="item in cartStore.items"
+                        :key="item.id"
+                        class="flex items-center gap-4"
+                    >
                         <img
                             :src="item.image?.url || 'https://placehold.co/100x100?text=No+Image'"
                             :alt="item.name"
-                            class="h-16 w-16 object-cover rounded"
+                            class="size-16 rounded object-cover"
                         >
                         <div class="flex-1">
                             <h3 class="font-medium">
                                 {{ item.name }}
                             </h3>
-                            <div class="flex items-center justify-between mt-1">
-                                <p size="sm" color="gray">
+                            <div class="mt-1 flex items-center justify-between">
+                                <p size="sm" color="white">
                                     ${{ Number(item.price).toFixed(2) }} × {{ item.quantity }}
                                 </p>
-                                <p class="font-medium text-amber-600">
+                                <p class="text-primary font-medium">
                                     ${{ (Number(item.price) * item.quantity).toFixed(2) }}
                                 </p>
                             </div>
@@ -92,7 +96,7 @@ function checkout() {
                             </p>
                         </div>
                         <UButton
-                            color="amber"
+                            color="primary"
                             variant="solid"
                             block
                             label="Checkout"

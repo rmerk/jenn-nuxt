@@ -1,20 +1,29 @@
 <template>
     <section class="flex flex-col" style="min-height: calc(100vh - 4rem)">
-        <div class="relative flex grow flex-col justify-center bg-green-900 text-white">
-            <div class="absolute bottom-[30%] right-[5%] p-8">
-                <p class="max-w-xs text-sm">
-                    A delightful treat that combines the comforting charm of freshly baked cookies with the rich, luxurious and mouthwatering fillings.
+        <div class="relative flex grow flex-col justify-center bg-transparent text-white">
+            <div class="absolute bottom-[22%] right-[5%] z-10 p-8">
+                <p class="max-w-xs text-lg">
+                    Experience the warm, irresistible aroma of fresh-baked
+                    sourdough! Crafted with care, every loaf is a perfect blend
+                    of crisp crust and soft, tangy goodness. Order yours today
+                    and taste the difference!
                 </p>
-                <a href="#" class="mt-2 inline-block text-sm underline">
-                    Get more details <i class="fas fa-arrow-right" />
-                </a>
+                <ULink
+                    to="/shop"
+                    class="mt-4 items-center text-lg text-white underline"
+                >
+                    Buy yours today! <UIcon
+                        name="i-material-symbols-light:arrow-outward-rounded"
+                        class="mx-1"
+                    />
+                </ULink>
             </div>
-            <div class="absolute bottom-[10%] left-[15%] p-8">
+            <div class="absolute bottom-[20%] left-[15%] p-8">
                 <div class="flex items-center">
                     <img
-                        src="/female-avatar.png"
+                        src="/best-sourdough.svg"
                         alt="Sourdough logo"
-                        class="size-32 rounded-full"
+                        class="size-40 rounded-full"
                     >
                 </div>
             </div>

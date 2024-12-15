@@ -4,21 +4,22 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 export default <Partial<Config>>{
     theme: {
         extend: {
-            fontFamily: { sans: ['Darker Grotesque', ...defaultTheme.fontFamily.sans], },
+            fontFamily: { sans: ['Darker Grotesque', ...defaultTheme.fontFamily.sans] },
             fontSize: {
-                xs: '0.694rem',
-                sm: '0.833rem',
-                base: '1rem',
-                lg: '1.2rem',
-                xl: '1.44rem',
+                'xs': '0.694rem',
+                'sm': '0.833rem',
+                'base': '1rem',
+                'lg': '1.2rem',
+                'xl': '1.44rem',
                 '2xl': '1.728rem',
                 '3xl': '2.074rem',
                 '4xl': '2.488rem',
-                '5xl': '2.986rem'
+                '5xl': '2.986rem',
             },
             colors: {
                 customPrimary: {
-                    default: '#8c593b',
+                    DEFAULT: '#8c593b',
+                    hover: '#a97549',
                     50: '#f8f4ee',
                     100: '#ede3d4',
                     200: '#ddc8ab',
@@ -30,6 +31,26 @@ export default <Partial<Config>>{
                     800: '#633b30',
                     900: '#56332d',
                     950: '#311a17',
+                },
+                olive: {
+                    DEFAULT: '#759052',
+                    50: '#f4f6ef',
+                    100: '#e6ecdb',
+                    200: '#cfdbbb',
+                    300: '#b0c393',
+                    400: '#93ab70',
+                    500: '#759052',
+                    600: '#586247',
+                    700: '#475833',
+                    800: '#3d4a2e',
+                    900: '#333e29',
+                    950: '#1a2013',
+                },
+            },
+            variants: {
+                extend: {
+                    textColor: ['hover'], // Ensure hover is available for text color
+                    backgroundColor: ['hover'], // Ensure hover is available for background
                 },
             },
         },

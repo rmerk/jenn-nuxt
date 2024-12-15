@@ -2,9 +2,9 @@
 </script>
 
 <template>
-    <div class="flex flex-col bg-white">
+    <div class="flex flex-col">
         <TheHeader />
-        <main class="flex-grow">
+        <main class="grow">
             <NuxtPage />
         </main>
         <TheFooter />

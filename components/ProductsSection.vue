@@ -30,16 +30,20 @@ const products = [
 </script>
 
 <template>
-    <section class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-serif font-bold text-center text-gray-900">
+    <section class="bg-gray-50 py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center font-serif text-3xl font-bold text-gray-900">
                 Our products
             </h2>
 
             <div class="mt-12 flex justify-center space-x-12">
-                <div v-for="category in categories" :key="category.name" class="text-center">
-                    <div class="w-16 h-16 mx-auto">
-                        <UIcon :name="category.icon" class="w-full h-full text-amber-600" />
+                <div
+                    v-for="category in categories"
+                    :key="category.name"
+                    class="text-center"
+                >
+                    <div class="mx-auto size-16">
+                        <UIcon :name="category.icon" class="text-primary size-full" />
                     </div>
                     <p class="mt-2 text-sm font-medium text-gray-600">
                         {{ category.name }}
@@ -48,15 +52,23 @@ const products = [
             </div>
 
             <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <div v-for="product in products" :key="product.name" class="bg-white rounded-lg p-6">
-                    <img :src="product.image" :alt="product.name" class="w-full h-48 object-cover rounded-lg">
+                <div
+                    v-for="product in products"
+                    :key="product.name"
+                    class="rounded-lg bg-white p-6"
+                >
+                    <img
+                        :src="product.image"
+                        :alt="product.name"
+                        class="h-48 w-full rounded-lg object-cover"
+                    >
                     <h3 class="mt-4 text-lg font-semibold">
                         {{ product.name }}
                     </h3>
                     <p class="mt-2 text-gray-600">
                         {{ product.description }}
                     </p>
-                    <p class="mt-4 text-amber-600 font-semibold">
+                    <p class="text-primary mt-4 font-semibold">
                         ${{ product.price.toFixed(2) }}
                     </p>
                 </div>
@@ -65,7 +77,7 @@ const products = [
             <div class="mt-12 text-center">
                 <UButton
                     to="/menu"
-                    color="amber"
+                    color="primary"
                     variant="outline"
                 >
                     See more

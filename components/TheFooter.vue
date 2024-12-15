@@ -25,13 +25,13 @@ async function handleLogout() {
 </script>
 
 <template>
-    <footer class="bg-customPrimary-950">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <footer class="border-t-2 border-solid border-b-olive-600 bg-olive-800">
+        <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div class="xl:grid xl:grid-cols-2 xl:gap-8">
                 <!-- Left Section -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
+                <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-4">
                     <div>
-                        <p class="font-semibold text-primary-200">
+                        <p class="text-primary-200 font-semibold">
                             Visit Us
                         </p>
                         <div class="mt-4 space-y-1">
@@ -44,7 +44,7 @@ async function handleLogout() {
                         </div>
                     </div>
                     <div>
-                        <p class="font-semibold text-primary-200">
+                        <p class="text-primary-200 font-semibold">
                             Hours
                         </p>
                         <div class="mt-4 space-y-1">
@@ -57,7 +57,7 @@ async function handleLogout() {
                         </div>
                     </div>
                     <div>
-                        <p class="font-semibold text-primary-200">
+                        <p class="text-primary-200 font-semibold">
                             Contact
                         </p>
                         <div class="mt-4 space-y-1">
@@ -70,19 +70,20 @@ async function handleLogout() {
                         </div>
                     </div>
                     <div>
-                        <p class="font-semibold text-primary-200">
+                        <p class="text-primary-200 font-semibold">
                             Account
                         </p>
                         <div class="mt-4 space-y-2">
                             <template v-if="authStore.isAuthenticated">
                                 <div>
-                                    <NuxtLink to="/account" class="text-white hover:text-primary-600">
+                                    <NuxtLink to="/account" class="hover:text-primary-600 text-white">
                                         Your Account
                                     </NuxtLink>
                                 </div>
                                 <div v-if="authStore.isAdmin">
                                     <NuxtLink
-                                        to="/admin" class="text-white hover:text-primary-600"
+                                        to="/admin"
+                                        class="hover:text-primary-600 text-white"
                                     >
                                         Admin Dashboard
                                     </NuxtLink>
@@ -91,7 +92,7 @@ async function handleLogout() {
                                     <UButton
                                         color="primary"
                                         variant="ghost"
-                                        class="text-white hover:text-primary-600"
+                                        class="hover:text-primary-600 text-white"
                                         @click="handleLogout"
                                     >
                                         Sign out
@@ -100,7 +101,7 @@ async function handleLogout() {
                             </template>
                             <template v-else>
                                 <div>
-                                    <NuxtLink to="/login" class="text-white hover:text-primary-600">
+                                    <NuxtLink to="/login" class="hover:text-primary-600 text-white">
                                         Sign in
                                     </NuxtLink>
                                 </div>

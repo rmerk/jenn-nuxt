@@ -49,12 +49,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <header class="h-16 border-b border-gray-200 bg-white">
+    <header class="h-16 border-b-2 border-solid border-b-olive-600 bg-olive-800">
         <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <!-- Logo -->
                 <div class="shrink-0">
-                    <NuxtLink to="/" class="text-primary text-2xl font-bold">
+                    <NuxtLink to="/" class="text-2xl font-bold text-white">
                         Sweet Delights
                     </NuxtLink>
                 </div>
@@ -65,7 +65,8 @@ onMounted(() => {
                         v-for="link in navigationLinks"
                         :key="link.to"
                         :to="link.to"
-                        class="inline-flex items-center px-1 pt-1 text-base font-medium text-gray-700 hover:border-amber-500 hover:text-amber-600"
+                        class="hover:text-primary hover:border-primary inline-flex items-center px-1 pt-1
+                         text-lg text-white"
                     >
                         {{ link.label }}
                     </NuxtLink>
@@ -77,7 +78,7 @@ onMounted(() => {
                     <template v-if="authStore.isAuthenticated">
                         <div class="relative ml-3">
                             <UButton
-                                color="primary"
+                                color="white"
                                 variant="ghost"
                                 class="flex rounded-full"
                                 @click="isUserMenuOpen = !isUserMenuOpen"
@@ -109,21 +110,21 @@ onMounted(() => {
                             >
                                 <NuxtLink
                                     to="/account"
-                                    class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100"
+                                    class="block px-4 py-2 text-lg text-white"
                                 >
                                     Your Account
                                 </NuxtLink>
                                 <NuxtLink
                                     v-if="authStore.isAdmin"
                                     to="/admin"
-                                    class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100"
+                                    class="block px-4 py-2 text-lg text-white"
                                 >
                                     Admin Dashboard
                                 </NuxtLink>
                                 <UButton
                                     color="gray"
                                     variant="ghost"
-                                    class="w-full px-4 py-2 text-left text-base"
+                                    class="w-full px-4 py-2 text-left text-lg"
                                     @click="handleLogout"
                                 >
                                     Sign out
@@ -134,7 +135,7 @@ onMounted(() => {
                     <template v-else>
                         <NuxtLink
                             to="/login"
-                            class="text-base font-medium text-gray-700 hover:text-amber-600"
+                            class="text-lg text-white"
                         >
                             Sign in
                         </NuxtLink>
@@ -193,7 +194,7 @@ onMounted(() => {
                         v-for="link in navigationLinks"
                         :key="link.to"
                         :to="link.to"
-                        class="block py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-amber-600"
+                        class="block py-2 text-lg text-white"
                         @click="isMobileMenuOpen = false"
                     >
                         {{ link.label }}

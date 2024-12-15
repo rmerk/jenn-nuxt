@@ -15,9 +15,9 @@ const { data: products } = await useAsyncData(
 
 <template>
     <div class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-3xl font-extrabold text-amber-800">
+                <h1 class="text-primary text-3xl font-extrabold">
                     Our Products
                 </h1>
                 <p class="mt-4 text-xl text-gray-600">
@@ -28,8 +28,8 @@ const { data: products } = await useAsyncData(
             <div class="mt-12">
                 <!-- Category Filters -->
                 <div
-                    class="flex justify-center space-x-4 mb-12 flex-wrap
-                gap-y-2"
+                    class="mb-12 flex flex-wrap justify-center gap-y-2
+                space-x-4"
                 />
 
                 <!-- Products Grid -->
@@ -42,25 +42,29 @@ const { data: products } = await useAsyncData(
                 </div>
 
                 <!-- Loading State -->
-                <div v-else class="text-center py-12">
+                <div v-else class="py-12 text-center">
                     <div class="animate-pulse space-y-4">
-                        <div v-for="i in 6" :key="i" class="bg-gray-200 h-64 rounded-lg" />
+                        <div
+                            v-for="i in 6"
+                            :key="i"
+                            class="h-64 rounded-lg bg-gray-200"
+                        />
                     </div>
                 </div>
             </div>
 
             <!-- Custom Orders Banner -->
-            <div class="mt-16 bg-amber-50 rounded-2xl p-8 text-center">
-                <h2 class="text-2xl font-bold text-amber-800">
+            <div class="bg-primary mt-16 rounded-2xl p-8 text-center">
+                <h2 class="text-primary text-2xl font-bold">
                     Need a Custom Order?
                 </h2>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                <p class="mx-auto mt-4 max-w-2xl text-gray-600">
                     Looking for something special? We offer custom orders for any occasion.
                     Contact us to discuss your requirements.
                 </p>
                 <NuxtLink
                     to="/contact"
-                    class="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700"
+                    class="bg-primary hover:bg-primary mt-6 inline-flex items-center rounded-md border border-transparent px-6 py-3 text-base font-medium text-white"
                 >
                     Get in Touch
                 </NuxtLink>

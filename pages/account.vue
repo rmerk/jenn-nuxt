@@ -16,15 +16,11 @@ const router = useRouter();
 
 const { find } = useStrapi();
 const { data: orders } = await useAsyncData<Strapi5ResponseMany<Order>>('orders', () => find<Order>('orders', {
-    filters: {
-        user: authStore.user?.id,
-    },
+    filters: { user: authStore.user?.id },
     populate: ['*'],
 }));
 
-const { data: products } = await useAsyncData<Strapi5ResponseMany<Product>>('products', () => find<Product>('products', {
-    populate: ['*'],
-}));
+const { data: products } = await useAsyncData<Strapi5ResponseMany<Product>>('products', () => find<Product>('products', { populate: ['*'] }));
 
 function getOrderProducts(order: Order) {
     return order?.products?.map((orderItem) => {
@@ -56,17 +52,17 @@ async function handleLogout() {
 </script>
 
 <template>
-    <div class="bg-gray-50 min-h-screen">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
+    <div class="min-h-screen bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-4xl">
                 <!-- Profile Section -->
-                <div class="bg-white shadow rounded-lg">
+                <div class="rounded-lg bg-white shadow">
                     <div class="px-4 py-5 sm:p-6">
                         <div class="flex items-center space-x-5">
-                            <div class="flex-shrink-0">
+                            <div class="shrink-0">
                                 <div class="relative">
-                                    <span class="inline-block h-16 w-16 rounded-full overflow-hidden bg-gray-100">
-                                        <UserCircleIcon class="h-full w-full text-gray-300" />
+                                    <span class="inline-block size-16 overflow-hidden rounded-full bg-gray-100">
+                                        <UserCircleIcon class="size-full text-gray-300" />
                                     </span>
                                 </div>
                             </div>
@@ -87,7 +83,7 @@ async function handleLogout() {
                     <h2 class="text-lg font-medium text-gray-900">
                         Order History
                     </h2>
-                    <div class="mt-4 bg-white shadow rounded-lg divide-y divide-gray-200">
+                    <div class="mt-4 divide-y divide-gray-200 rounded-lg bg-white shadow">
                         <div v-if="orders?.data?.length === 0" class="p-6 text-center text-gray-500">
                             No orders found
                         </div>
@@ -99,7 +95,7 @@ async function handleLogout() {
                         >
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-sm font-medium text-amber-600">
+                                    <p class="text-primary text-sm font-medium">
                                         Order #{{ order.id }}
                                     </p>
                                     <p class="mt-1 text-sm text-gray-500">
@@ -115,16 +111,22 @@ async function handleLogout() {
                                     <div
                                         v-for="product in
                                             getOrderProducts(order)"
-                                        :key="product.slug" class="flex justify-between"
+                                        :key="product.slug"
+                                        class="flex justify-between"
                                     >
-                                        <span>{{ product.productName }} × {{ product.quantity }}</span>
-                                        <span>${{ ((product?.price ?? 0) * (product.quantity ?? 0)).toFixed(2) }}</span>
+                                        <span>
+                                            {{ product.productName }} × {{ product.quantity }}
+                                        </span>
+                                        <span>
+                                            ${{ ((product?.price ?? 0) * (product.quantity ?? 0)).toFixed(2) }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mt-4">
                                 <span
-                                    class="px-2 py-1 text-xs font-medium rounded-full" :class="[
+                                    class="rounded-full px-2 py-1 text-xs font-medium"
+                                    :class="[
                                         {
                                             'bg-green-100 text-green-800': order.orderStatus === 'Complete',
                                             'bg-yellow-100 text-yellow-800': order.orderStatus === 'Processing',
@@ -142,7 +144,7 @@ async function handleLogout() {
                 <!-- Logout Button -->
                 <div class="mt-8">
                     <button
-                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                        class="bg-primary hover:bg-primary focus:ring-primary flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
                         @click="handleLogout"
                     >
                         Sign out

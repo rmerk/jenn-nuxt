@@ -39,16 +39,16 @@ function addToCart() {
             <img
                 :src="mediaUrl"
                 :alt="product.name"
-                class="w-full h-48 object-cover"
+                class="h-48 w-full object-cover"
             >
         </template>
 
         <div class="space-y-4">
-            <div class="flex justify-between items-start">
+            <div class="flex items-start justify-between">
                 <h3 class="text-lg font-semibold text-gray-900">
                     {{ product.name }}
                 </h3>
-                <UBadge color="amber" size="lg">
+                <UBadge color="primary" size="lg">
                     ${{ Number(product.price).toFixed(2) }}
                 </UBadge>
             </div>
@@ -57,11 +57,11 @@ function addToCart() {
                 {{ product.description }}
             </p>
 
-            <div class="flex items-center gap-2 flex-wrap">
+            <div class="flex flex-wrap items-center gap-2">
                 <UBadge
                     v-for="tag in product.dietary_tags"
                     :key="tag.id"
-                    color="amber"
+                    color="primary"
                     variant="subtle"
                     size="sm"
                 >
@@ -73,7 +73,7 @@ function addToCart() {
                 <UButtonGroup>
                     <UButton
                         icon="i-heroicons-minus"
-                        color="amber"
+                        color="primary"
                         variant="ghost"
                         :disabled="quantity <= 0"
                         @click="updateQuantity(-1)"
@@ -86,14 +86,14 @@ function addToCart() {
                     />
                     <UButton
                         icon="i-heroicons-plus"
-                        color="amber"
+                        color="primary"
                         variant="ghost"
                         @click="updateQuantity(1)"
                     />
                 </UButtonGroup>
 
                 <UButton
-                    color="amber"
+                    color="primary"
                     :disabled="quantity === 0"
                     @click="addToCart"
                 >

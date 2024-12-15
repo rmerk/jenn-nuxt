@@ -43,9 +43,7 @@ async function updateOrderStatus(order) {
     try {
         const response = await $fetch(`/api/orders/${order.id}`, {
             method: 'PUT',
-            body: {
-                status: order.status === 'pending' ? 'processing' : 'completed',
-            },
+            body: { status: order.status === 'pending' ? 'processing' : 'completed' },
         });
 
         if (response) {
@@ -61,12 +59,12 @@ async function updateOrderStatus(order) {
 </script>
 
 <template>
-    <div class="bg-gray-50 min-h-screen">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <!-- Admin Header -->
             <div class="md:flex md:items-center md:justify-between">
-                <div class="flex-1 min-w-0">
-                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                <div class="min-w-0 flex-1">
+                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl">
                         Admin Dashboard
                     </h2>
                 </div>
@@ -74,15 +72,23 @@ async function updateOrderStatus(order) {
 
             <!-- Stats Overview -->
             <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                <div v-for="stat in stats" :key="stat.name" class="bg-white overflow-hidden shadow rounded-lg">
+                <div
+                    v-for="stat in stats"
+                    :key="stat.name"
+                    class="overflow-hidden rounded-lg bg-white shadow"
+                >
                     <div class="p-5">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <component :is="stat.icon" class="h-6 w-6 text-gray-400" aria-hidden="true" />
+                            <div class="shrink-0">
+                                <component
+                                    :is="stat.icon"
+                                    class="size-6 text-gray-400"
+                                    aria-hidden="true"
+                                />
                             </div>
                             <div class="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt class="text-sm font-medium text-gray-500 truncate">
+                                    <dt class="truncate text-sm font-medium text-gray-500">
                                         {{ stat.name }}
                                     </dt>
                                     <dd class="flex items-baseline">
@@ -101,14 +107,14 @@ async function updateOrderStatus(order) {
             <div class="mt-8">
                 <div class="sm:flex sm:items-center">
                     <div class="sm:flex-auto">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">
                             Recent Orders
                         </h3>
                     </div>
                 </div>
 
                 <div class="mt-4 flex flex-col">
-                    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-300">
@@ -130,7 +136,9 @@ async function updateOrderStatus(order) {
                                                 Status
                                             </th>
                                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                                <span class="sr-only">Actions</span>
+                                                <span class="sr-only">
+                                                    Actions
+                                                </span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -153,7 +161,8 @@ async function updateOrderStatus(order) {
                       text-gray-500"
                                             >
                                                 <span
-                                                    class="px-2 py-1 text-xs font-medium rounded-full" :class="[
+                                                    class="rounded-full px-2 py-1 text-xs font-medium"
+                                                    :class="[
                                                         {
                                                             'bg-green-100 text-green-800': order.status === 'completed',
                                                             'bg-yellow-100 text-yellow-800': order.status === 'processing',
@@ -166,7 +175,7 @@ async function updateOrderStatus(order) {
                                             </td>
                                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                 <button
-                                                    class="text-amber-600 hover:text-amber-900"
+                                                    class="text-primary hover:text-primary"
                                                     @click="updateOrderStatus(order)"
                                                 >
                                                     Update status

@@ -26,7 +26,7 @@ async function handleSubmit() {
 </script>
 
 <template>
-    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="flex min-h-screen flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                 Reset your password
@@ -37,7 +37,7 @@ async function handleSubmit() {
         </div>
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <div class="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
                 <form class="space-y-6" @submit.prevent="handleSubmit">
                     <div>
                         <UFormGroup label="Email address" name="email">
@@ -53,7 +53,7 @@ async function handleSubmit() {
                     <div>
                         <UButton
                             type="submit"
-                            color="amber"
+                            color="primary"
                             variant="solid"
                             :loading="loading"
                             block
@@ -63,10 +63,10 @@ async function handleSubmit() {
                         </UButton>
                     </div>
 
-                    <div class="text-sm text-center">
+                    <div class="text-center text-sm">
                         <ULink
                             to="/login"
-                            class="font-medium text-amber-600 hover:text-amber-500"
+                            class="text-primary hover:text-primary font-medium"
                         >
                             Back to login
                         </ULink>
@@ -87,7 +87,7 @@ async function handleSubmit() {
                 </p>
                 <template #footer>
                     <UButton
-                        color="amber"
+                        color="primary"
                         variant="solid"
                         block
                         @click="router.push('/login')"
