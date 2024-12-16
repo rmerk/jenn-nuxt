@@ -25,65 +25,48 @@ async function handleLogout() {
 </script>
 
 <template>
-    <footer class="border-t-2 border-solid border-b-olive-600 bg-olive-800">
+    <footer class="bg-cream pt-20">
+        <!-- Border accent -->
+        <div class="flex items-center">
+            <div class="flex-1 border-t border-gray-300" />
+            <UIcon name="material-symbols-light:asterisk" class="mx-2 text-gray-600" />
+            <div class="flex-1 border-t border-gray-300" />
+        </div>
+
         <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div class="xl:grid xl:grid-cols-2 xl:gap-8">
                 <!-- Left Section -->
-                <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-4">
+                <div class="grid w-full grid-cols-1 md:grid-cols-2">
                     <div>
-                        <p class="text-primary-200 font-semibold">
-                            Visit Us
-                        </p>
-                        <div class="mt-4 space-y-1">
-                            <p class="text-white">
-                                123 Bakery Street
-                            </p>
-                            <p class="text-white">
-                                Sweet Town, ST 12345
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-primary-200 font-semibold">
-                            Hours
-                        </p>
-                        <div class="mt-4 space-y-1">
-                            <p class="text-white">
-                                Mon-Fri: 7am - 7pm
-                            </p>
-                            <p class="text-white">
-                                Sat-Sun: 8am - 5pm
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-primary-200 font-semibold">
+                        <h6 class="text-primary">
                             Contact
-                        </p>
+                        </h6>
                         <div class="mt-4 space-y-1">
-                            <p class="text-white">
-                                Phone: (555) 123-4567
+                            <p class="text-black">
+                                <a href="tel:+16122127826">
+                                    Phone: (612) 212-7826
+                                </a>
                             </p>
-                            <p class="text-white">
+                            <p class="text-black">
                                 Email: hello@sweetdelights.com
                             </p>
                         </div>
                     </div>
                     <div>
-                        <p class="text-primary-200 font-semibold">
+                        <h6 class="text-primary">
                             Account
-                        </p>
+                        </h6>
                         <div class="mt-4 space-y-2">
                             <template v-if="authStore.isAuthenticated">
                                 <div>
-                                    <NuxtLink to="/account" class="hover:text-primary-600 text-white">
+                                    <NuxtLink to="/account" class="hover:text-primary-600 text-black">
                                         Your Account
                                     </NuxtLink>
                                 </div>
                                 <div v-if="authStore.isAdmin">
                                     <NuxtLink
                                         to="/admin"
-                                        class="hover:text-primary-600 text-white"
+                                        class="hover:text-primary-600 text-black"
                                     >
                                         Admin Dashboard
                                     </NuxtLink>
@@ -92,7 +75,7 @@ async function handleLogout() {
                                     <UButton
                                         color="primary"
                                         variant="ghost"
-                                        class="hover:text-primary-600 text-white"
+                                        class="hover:text-primary-600 text-black"
                                         @click="handleLogout"
                                     >
                                         Sign out
@@ -101,7 +84,7 @@ async function handleLogout() {
                             </template>
                             <template v-else>
                                 <div>
-                                    <NuxtLink to="/login" class="hover:text-primary-600 text-white">
+                                    <NuxtLink to="/login" class="hover:text-primary-600 text-black">
                                         Sign in
                                     </NuxtLink>
                                 </div>
@@ -113,7 +96,7 @@ async function handleLogout() {
                 <!-- Right Section -->
                 <div class="mt-8 xl:mt-0">
                     <div class="flex items-center justify-end">
-                        <p class="text-sm text-white">
+                        <p class="text-sm text-black">
                             &copy; {{ new Date().getFullYear() }} Sweet Delights Bakery. All rights reserved.
                         </p>
                     </div>

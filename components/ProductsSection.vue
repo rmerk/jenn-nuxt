@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const categories = [
     { name: 'Bread', icon: 'i-heroicons-cake' },
     { name: 'Baguettes', icon: 'i-heroicons-cake' },
@@ -12,31 +12,31 @@ const products = [
         name: 'Hearth with love and honey',
         description: 'Wheat flour, water, salt, butter, milk, natural yeast, pressed yeast',
         price: 15.99,
-        image: 'https://via.placeholder.com/150',
+        image: 'sour-dough-product-1.png',
     },
     {
         name: 'Hearth and buckwheat',
         description: 'Wheat flour, water, rye butter, milk, natural yeast',
         price: 12.99,
-        image: 'https://via.placeholder.com/150',
+        image: 'sour-dough-product-2.png',
     },
     {
         name: 'Boulangerie',
         description: 'Wheat flour, water, butter, milk, natural yeast, pressed yeast',
         price: 14.99,
-        image: 'https://via.placeholder.com/150',
+        image: 'sour-dough-product-3.png',
     },
 ];
 </script>
 
 <template>
-    <section class="bg-gray-50 py-24">
+    <section class="bg-cream py-24">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 class="text-center font-serif text-3xl font-bold text-gray-900">
-                Our products
-            </h2>
+            <h1 class="text-center text-gray-900">
+                Featured products
+            </h1>
 
-            <div class="mt-12 flex justify-center space-x-12">
+            <!-- <div class="mt-12 flex justify-center space-x-12">
                 <div
                     v-for="category in categories"
                     :key="category.name"
@@ -49,7 +49,7 @@ const products = [
                         {{ category.name }}
                     </p>
                 </div>
-            </div>
+            </div> -->
 
             <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <div
@@ -78,7 +78,7 @@ const products = [
                 <UButton
                     to="/menu"
                     color="primary"
-                    variant="outline"
+                    class="text-lg"
                 >
                     See more
                 </UButton>

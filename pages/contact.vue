@@ -25,10 +25,10 @@ async function submitForm() {
 </script>
 
 <template>
-    <div class="bg-white py-12">
+    <div class="bg-cream py-12">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-3xl">
-                <h1 class="text-primary text-center text-3xl font-extrabold">
+                <h1 class="text-center text-3xl font-extrabold text-amber-800">
                     Contact Us
                 </h1>
 
@@ -74,7 +74,7 @@ async function submitForm() {
                                 id="name"
                                 v-model="form.name"
                                 type="text"
-                                class="focus:border-primary focus:ring-primary mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
                             >
                         </div>
 
@@ -86,7 +86,7 @@ async function submitForm() {
                                 id="email"
                                 v-model="form.email"
                                 type="email"
-                                class="focus:border-primary focus:ring-primary mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
                             >
                         </div>
 
@@ -98,13 +98,13 @@ async function submitForm() {
                                 id="message"
                                 v-model="form.message"
                                 rows="4"
-                                class="focus:border-primary focus:ring-primary mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
                             />
                         </div>
 
                         <button
                             type="submit"
-                            class="bg-primary hover:bg-primary focus:ring-primary flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+                            class="flex w-full justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
                         >
                             Send Message
                         </button>

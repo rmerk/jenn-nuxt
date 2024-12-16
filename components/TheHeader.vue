@@ -49,7 +49,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <header class="h-16 border-b-2 border-solid border-b-olive-600 bg-olive-800">
+    <header class="h-16">
         <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <!-- Logo -->
@@ -202,5 +202,9 @@ onMounted(() => {
                 </div>
             </div>
         </nav>
+        <UDivider
+            icon="material-symbols-light:asterisk"
+            :ui="{ icon: { base: 'text-olive-300' } }"
+        />
     </header>
 </template>

@@ -11,10 +11,10 @@ function getProductImageUrl(url: string) {
 </script>
 
 <template>
-    <div class="bg-white py-12">
+    <div class="bg-cream py-12">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-primary text-3xl font-extrabold">
+                <h1>
                     Our Menu
                 </h1>
                 <p class="mt-4 text-xl text-gray-600">
@@ -28,15 +28,15 @@ function getProductImageUrl(url: string) {
                     :key="product.id"
                     class="mb-12"
                 >
-                    <h2 class="text-primary mb-6 text-2xl font-bold">
+                    <h4 class="mb-6">
                         {{ product.productName }}
-                    </h2>
-                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    </h4>
+                    <div class="flex gap-6 md:flex-row">
                         <img
                             v-if="product?.productImage"
                             :src="getProductImageUrl(product.productImage.url)"
                             :alt="product.productName"
-                            class="h-48 w-full object-contain"
+                            class="h-52 w-full object-contain md:w-auto"
                         >
                         <div class="px-6">
                             <p class="mt-2 text-gray-600">
