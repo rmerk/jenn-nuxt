@@ -36,10 +36,11 @@ body {
 }
 
 button, a {
-    @apply duration-300 ease-in-out;
+    @apply transition-all duration-300 ease-in-out;
 }
+
 button:hover {
-    @apply bg-customPrimary-600 duration-300 ease-in-out;
+    @apply duration-300 ease-in-out;
 }
 
 a:hover {

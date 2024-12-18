@@ -25,12 +25,16 @@ async function handleLogout() {
 </script>
 
 <template>
-    <footer class="bg-cream pt-20">
+    <footer class="bg-cream">
         <!-- Border accent -->
         <div class="flex items-center">
-            <div class="flex-1 border-t border-gray-300" />
-            <UIcon name="material-symbols-light:asterisk" class="mx-2 text-gray-600" />
-            <div class="flex-1 border-t border-gray-300" />
+            <div class="flex-1 border-t border-gray-400" />
+            <UIcon
+                name="material-symbols-light:asterisk"
+                class="mx-2 text-gray-600"
+                size="20"
+            />
+            <div class="flex-1 border-t border-gray-400" />
         </div>
 
         <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
