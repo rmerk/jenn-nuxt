@@ -32,6 +32,8 @@ export default defineNuxtConfig({
 
     nitro: { esbuild: { options: { target: 'esnext' } } },
 
+    ssr: false,
+
     eslint: { config: { standalone: false } },
 
     app: {

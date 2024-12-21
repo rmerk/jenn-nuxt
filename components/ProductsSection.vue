@@ -74,9 +74,9 @@ const products = [
                 </div>
             </div>
 
-            <div class="mt-12 text-center">
+            <div class="mt-12 flex items-center justify-center">
                 <UButton
-                    to="/menu"
+                    to="/shop"
                     color="primary"
                     class="text-lg"
                 >

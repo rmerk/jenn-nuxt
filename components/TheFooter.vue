@@ -31,8 +31,8 @@ async function handleLogout() {
             <div class="flex-1 border-t border-gray-400" />
             <UIcon
                 name="material-symbols-light:asterisk"
-                class="mx-2 text-gray-600"
-                size="20"
+                class="mx-2 text-gray-500"
+                size="18"
             />
             <div class="flex-1 border-t border-gray-400" />
         </div>
@@ -70,7 +70,7 @@ async function handleLogout() {
                                 <div v-if="authStore.isAdmin">
                                     <NuxtLink
                                         to="/admin"
-                                        class="hover:text-primary-600 text-black"
+                                        class="text-black"
                                     >
                                         Admin Dashboard
                                     </NuxtLink>
@@ -79,7 +79,7 @@ async function handleLogout() {
                                     <UButton
                                         color="primary"
                                         variant="ghost"
-                                        class="hover:text-primary-600 text-black"
+                                        class="text-lg text-black"
                                         @click="handleLogout"
                                     >
                                         Sign out
@@ -88,7 +88,10 @@ async function handleLogout() {
                             </template>
                             <template v-else>
                                 <div>
-                                    <NuxtLink to="/login" class="hover:text-primary-600 text-black">
+                                    <NuxtLink
+                                        to="/login"
+                                        class="text-lg text-black"
+                                    >
                                         Sign in
                                     </NuxtLink>
                                 </div>
@@ -98,7 +101,7 @@ async function handleLogout() {
                 </div>
 
                 <!-- Right Section -->
-                <div class="mt-8 xl:mt-0">
+                <div class="mt-8 flex items-end justify-end xl:mt-0">
                     <div class="flex items-center justify-end">
                         <p class="text-sm text-black">
                             &copy; {{ new Date().getFullYear() }} Sweet Delights Bakery. All rights reserved.

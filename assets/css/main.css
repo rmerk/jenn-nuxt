@@ -35,16 +35,17 @@ body {
     background: #485438;
 }
 
-button, a {
-    @apply transition-all duration-300 ease-in-out;
+button, a, button span {
+    @apply transition-all duration-200 ease-in-out;
 }
 
 button:hover {
-    @apply duration-300 ease-in-out;
+    @apply duration-200 ease-in-out;
 }
 
-a:hover {
-    @apply text-customPrimary-600 duration-300 ease-in-out;
+a:hover,
+button span:hover {
+    @apply text-customPrimary-300 duration-200 ease-in-out;
 }
 
 p {

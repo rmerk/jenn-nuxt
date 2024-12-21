@@ -9,7 +9,10 @@ const items = [
 
 <template>
     <div class="overflow-hidden border-y border-gray-400 bg-cream py-1">
-        <div class="flex items-center justify-center whitespace-nowrap">
+        <div
+            class="mx-auto flex max-w-7xl items-center justify-center
+        whitespace-nowrap"
+        >
             <span
                 v-for="(item, index) in items"
                 :key="index"

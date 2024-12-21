@@ -2,6 +2,8 @@
 import { useAuthStore } from '@/stores/auth';
 import ShoppingCart from '~/components/ShoppingCart.vue';
 
+const route = useRoute();
+
 const toast = useToast();
 
 const authStore = useAuthStore();
@@ -12,7 +14,6 @@ const isMobileMenuOpen = ref(false);
 
 const navigationLinks = [
     { to: '/', label: 'Home' },
-    { to: '/menu', label: 'Menu' },
     { to: '/shop', label: 'Shop' },
     { to: '/gallery', label: 'Gallery' },
     { to: '/blog', label: 'Blog' },
@@ -49,9 +50,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <header class="h-16">
-        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
+    <header class="relative h-[80px]">
+        <nav class="h-inherit mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="h-inherit flex items-center justify-between">
                 <!-- Logo -->
                 <div class="shrink-0">
                     <NuxtLink to="/" class="text-2xl font-bold text-white">
@@ -65,8 +66,8 @@ onMounted(() => {
                         v-for="link in navigationLinks"
                         :key="link.to"
                         :to="link.to"
-                        class="hover:text-primary hover:border-primary inline-flex items-center px-1 pt-1
-                         text-lg text-white"
+                        class="inline-flex items-center px-1 pt-1 text-lg
+                         text-white hover:text-customPrimary-300"
                     >
                         {{ link.label }}
                     </NuxtLink>
@@ -75,6 +76,7 @@ onMounted(() => {
                 <!-- Right Section -->
                 <div class="flex items-center gap-4">
                     <ShoppingCart />
+
                     <template v-if="authStore.isAuthenticated">
                         <div class="relative ml-3">
                             <UButton
@@ -105,7 +107,7 @@ onMounted(() => {
                             <!-- User Dropdown Menu -->
                             <div
                                 v-if="isUserMenuOpen"
-                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5"
+                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg"
                                 @click="isUserMenuOpen = false"
                             >
                                 <NuxtLink
@@ -114,6 +116,7 @@ onMounted(() => {
                                 >
                                     Your Account
                                 </NuxtLink>
+
                                 <NuxtLink
                                     v-if="authStore.isAdmin"
                                     to="/admin"
@@ -121,6 +124,7 @@ onMounted(() => {
                                 >
                                     Admin Dashboard
                                 </NuxtLink>
+
                                 <UButton
                                     color="gray"
                                     variant="ghost"
@@ -132,6 +136,7 @@ onMounted(() => {
                             </div>
                         </div>
                     </template>
+
                     <template v-else>
                         <NuxtLink
                             to="/login"
@@ -203,8 +208,21 @@ onMounted(() => {
             </div>
         </nav>
         <UDivider
-            icon="material-symbols-light:asterisk"
-            :ui="{ icon: { base: 'text-olive-300' } }"
-        />
+            v-if="route.path === '/'"
+            type="solid"
+            :ui="{ border: { base: 'border-olive-600' } }"
+            class="absolute bottom-[-15px]"
+        >
+            <UIcon
+                name="material-symbols-light:asterisk"
+                class="text-olive"
+            />
+        </UDivider>
     </header>
 </template>
+
+<style scoped>
+.h-inherit {
+    height: inherit;
+}
+</style>

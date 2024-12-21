@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const form = ref({
     name: '',
     email: '',
@@ -25,10 +25,10 @@ async function submitForm() {
 </script>
 
 <template>
-    <div class="bg-cream py-12">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="bg-cream py-20">
+        <div class="mx-auto w-11/12 px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-3xl">
-                <h1 class="text-center text-3xl font-extrabold text-amber-800">
+                <h1 class="text-center text-black">
                     Contact Us
                 </h1>
 
@@ -65,50 +65,59 @@ async function submitForm() {
                         </div>
                     </div>
 
-                    <form class="space-y-6" @submit.prevent="submitForm">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">
-                                Name
-                            </label>
-                            <input
-                                id="name"
-                                v-model="form.name"
-                                type="text"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
-                            >
-                        </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">
-                                Email
-                            </label>
-                            <input
-                                id="email"
-                                v-model="form.email"
-                                type="email"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
-                            >
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">
-                                Message
-                            </label>
-                            <textarea
-                                id="message"
-                                v-model="form.message"
-                                rows="4"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            class="flex w-full justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+                    <div class="rounded bg-cream-100 p-5">
+                        <UForm
+                            class="space-y-6"
+                            :state="form"
+                            @submit="submitForm"
                         >
-                            Send Message
-                        </button>
-                    </form>
+                            <UFormGroup
+                                label="Name"
+                                name="name"
+                                size="xl"
+                            >
+                                <UInput
+                                    id="name"
+                                    v-model="form.name"
+                                    type="text"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                                />
+                            </UFormGroup>
+
+                            <UFormGroup
+                                label="Email"
+                                name="email"
+                                size="xl"
+                            >
+                                <UInput
+                                    id="email"
+                                    v-model="form.email"
+                                    type="email"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                                />
+                            </UFormGroup>
+
+                            <UFormGroup
+                                label="Message"
+                                name="message"
+                                size="xl"
+                            >
+                                <UTextarea
+                                    id="message"
+                                    v-model="form.message"
+                                    :rows="4"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+                                />
+                            </UFormGroup>
+
+                            <UButton
+                                type="submit"
+                                class="flex w-full justify-center text-lg"
+                            >
+                                Send Message
+                            </UButton>
+                        </UForm>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,42 +1,51 @@
-interface CartItem {
-  id: number
-  name: string
-  price: number
-  quantity: number
-  image?: {
-    url: string
-  }
+import type { Product } from '~/types/collections';
+import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
+
+export interface CartItem extends Product {
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+    image?: {
+        url: string;
+    };
+    dietary_tags?: { id: number; name: string }[];
 }
 
-export const useCartStore = defineStore('cart', {
-  state: () => ({
-    items: [] as CartItem[]
-  }),
+export const useCartStore = defineStore('cart', () => {
+    const items = ref<CartItem[]>([]);
 
-  getters: {
-    itemCount: (state) => state.items.reduce((sum, item) => sum + item.quantity, 0),
-    total: (state) => state.items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-  },
+    const itemCount = computed(() => items.value.reduce((sum, item) => sum + item.quantity, 0));
+    const total = computed(() => items.value.reduce((sum, item) => sum + (item.price * item.quantity), 0));
 
-  actions: {
-    addItem(item: CartItem) {
-      const existingItem = this.items.find(i => i.id === item.id)
-      if (existingItem) {
-        existingItem.quantity += item.quantity
-      } else {
-        this.items.push(item)
-      }
-    },
-
-    removeItem(item: CartItem) {
-      const index = this.items.findIndex(i => i.id === item.id)
-      if (index > -1) {
-        this.items.splice(index, 1)
-      }
-    },
-
-    clearCart() {
-      this.items = []
+    function addItem(item: CartItem) {
+        const existingItem = items.value.find(i => i.id === item.id);
+        if (existingItem) {
+            existingItem.quantity += item.quantity;
+        }
+        else {
+            items.value.push(item);
+        }
     }
-  }
-})
+
+    function removeItem(item: CartItem) {
+        const index = items.value.findIndex(i => i.id === item.id);
+        if (index > -1) {
+            items.value.splice(index, 1);
+        }
+    }
+
+    function clearCart() {
+        items.value = [];
+    }
+
+    return {
+        items,
+        itemCount,
+        total,
+        addItem,
+        removeItem,
+        clearCart,
+    };
+});

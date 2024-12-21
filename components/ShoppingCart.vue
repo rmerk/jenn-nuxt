@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { useCartStore } from '~/stores/cart';
 
@@ -17,14 +17,16 @@ function checkout() {
         <UButton
             color="primary"
             variant="ghost"
+            class="hover:bg-transparent"
             @click="isOpen = !isOpen"
         >
-            <UIcon name="i-heroicons-shopping-cart" class="size-5 text-white" />
+            <UIcon name="i-heroicons-shopping-cart" class="md:hover:text-primary size-5 text-white" />
+
             <UBadge
                 v-if="cartStore.itemCount > 0"
-                :value="cartStore.itemCount"
+                :label="cartStore.itemCount"
                 color="primary"
-                class="absolute -right-1 -top-1"
+                class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full text-sm"
             />
         </UButton>
 
@@ -63,9 +65,9 @@ function checkout() {
                             class="size-16 rounded object-cover"
                         >
                         <div class="flex-1">
-                            <h3 class="font-medium">
+                            <p class="font-medium">
                                 {{ item.name }}
-                            </h3>
+                            </p>
                             <div class="mt-1 flex items-center justify-between">
                                 <p size="sm" color="white">
                                     ${{ Number(item.price).toFixed(2) }} × {{ item.quantity }}
@@ -86,7 +88,7 @@ function checkout() {
                 </div>
 
                 <template #footer>
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <div class="flex justify-between">
                             <p class="font-medium">
                                 Subtotal
@@ -101,6 +103,7 @@ function checkout() {
                             block
                             label="Checkout"
                             :disabled="cartStore.items.length === 0"
+                            class="text-lg"
                             @click="checkout"
                         />
                     </div>

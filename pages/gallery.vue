@@ -1,8 +1,9 @@
-<script setup>
+<script setup lang="ts">
 const { find } = useStrapi();
 
 // Fetch gallery images from Strapi
-const { data: images } = await useAsyncData('gallery-images', () => find('gallery-images', {
+const { data: images } = await useAsyncData('gallery-images',
+    () => find<Gall>('gallery-images', {
     populate: '*',
     sort: ['createdAt:desc'],
 }));
@@ -36,7 +37,7 @@ function openLightbox(image) {
     <div class="bg-white py-12">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-primary text-3xl font-extrabold">
+                <h1>
                     Our Gallery
                 </h1>
                 <p class="mt-4 text-xl text-gray-600">

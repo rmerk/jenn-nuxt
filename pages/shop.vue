@@ -14,24 +14,19 @@ const { data: products } = await useAsyncData(
 </script>
 
 <template>
-    <div class="bg-cream py-12">
+    <div class="bg-cream py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-primary text-3xl font-extrabold">
+                <h1>
                     Our Products
                 </h1>
+
                 <p class="mt-4 text-xl text-gray-600">
                     Fresh baked goods made with love
                 </p>
             </div>
 
-            <div class="mt-12">
-                <!-- Category Filters -->
-                <div
-                    class="mb-12 flex flex-wrap justify-center gap-y-2
-                space-x-4"
-                />
-
+            <div class="my-20 md:mb-40 md:mt-20">
                 <!-- Products Grid -->
                 <div v-if="products" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <ProductCard
@@ -58,10 +53,11 @@ const { data: products } = await useAsyncData(
                 <h2 class="text-2xl font-bold text-white">
                     Need a custom order?
                 </h2>
+
                 <p class="mx-auto mt-4 max-w-2xl text-white">
-                    Looking for something special? We offer custom orders for any occasion.
-                    Contact us to discuss your requirements.
+                    From everyday favorites to special occasions, we craft custom-baked breads just for you. Contact us to create the perfect loaf for your needs!
                 </p>
+
                 <NuxtLink
                     to="/contact"
                     class="mt-6 inline-flex items-center rounded-md border border-transparent px-6 py-3 text-lg font-medium text-white underline"

@@ -7,13 +7,13 @@ const reviews = [
         quote: 'Ice cream deluxe cookie from Bakerville. An absolute delight! It\'s a heavenly combination of creamy ice cream nestled between two perfectly baked cookies.',
         description: 'Our customer ranges from school-playing kids to retirees, uniting diverse individuals in the joy of savoring our delicious baked goods.',
         title: 'Mother Loaf Sourdough Bread',
-        image: 'https://placehold.it/400',
+        image: 'sourdough-review.png',
     },
     {
         quote: 'The best sourdough bread I\'ve ever tasted! Perfect crust and a soft, chewy center.',
         description: 'Our passion for baking brings joy to homes across the country.',
         title: 'Hearth Baked Focaccia Bread',
-        image: 'https://placehold.it/400',
+        image: 'focaccia-review.png',
     },
 ];
 
@@ -36,10 +36,20 @@ function prevReview() {
             >
                 {{ reviews[currentReview].title }}
             </h1>
+            <div
+                class="absolute right-[400px] top-72 z-20 flex items-center
+            rounded-full bg-white p-4"
+            >
+                <UIcon
+                    name="material-symbols-light:format-quote-rounded"
+                    class="text-5xl text-black"
+                />
+            </div>
             <img
-                :src="reviews[currentReview].image"
+                :src="`/${reviews[currentReview].image}`"
                 alt="Bakerville Bakery"
-                class="relative z-10 mb-8 mt-32 justify-self-center rounded-lg object-cover"
+                class="relative z-10 mb-8 mt-32 max-w-[400px] justify-self-center
+            rounded-lg object-cover"
             >
             <!-- Review Content -->
             <div class="flex min-h-52 flex-col items-center gap-6 md:flex-row">
@@ -47,7 +57,7 @@ function prevReview() {
                 <div class="shrink-0">
                     <UAvatar
                         size="xl"
-                        src="https://placehold.it/200x200"
+                        src="/female-avatar.png"
                         alt="Profile Image"
                         class="size-24"
                     />
