@@ -29,44 +29,43 @@ async function handleSubmit() {
 </script>
 
 <template>
-    <div class="flex min-h-screen flex-col justify-center bg-gray-50 py-12 sm:px-6 lg:px-8">
+    <div class="flex min-h-screen flex-col justify-center bg-cream py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            <h1 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                 Sign in to your account
-            </h2>
+            </h1>
         </div>
 
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+        <div class="mt-20 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-cream-100 px-4 py-8 shadow sm:rounded-lg sm:px-10">
                 <form class="space-y-6" @submit.prevent="handleSubmit">
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">
-                            Email address
-                        </label>
                         <div class="mt-1">
-                            <input
-                                id="email"
-                                v-model="form.email"
-                                type="email"
+                            <UFormGroup
+                                name="Email"
+                                label="Email"
                                 required
-                                class="focus:border-primary focus:ring-primary block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder:text-gray-400 focus:outline-none"
                             >
+                                <UInput
+                                    id="email"
+                                    v-model="form.email"
+                                    type="email"
+                                />
+                            </UFormGroup>
                         </div>
                     </div>
 
                     <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">
-                            Password
-                        </label>
-                        <div class="mt-1">
-                            <input
-                                id="password"
+                        <UFormGroup
+                            name="Password"
+                            label="Password"
+                            required
+                        >
+                            <UInput
                                 v-model="form.password"
                                 type="password"
-                                required
-                                class="focus:border-primary focus:ring-primary block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm placeholder:text-gray-400 focus:outline-none"
-                            >
-                        </div>
+                            />
+                        </UFormGroup>
                     </div>
 
                     <div class="flex items-center justify-between">
@@ -83,6 +82,7 @@ async function handleSubmit() {
                             type="submit"
                             :disabled="authStore.loading"
                             color="primary"
+                            class="text-lg"
                         >
                             {{ authStore.loading ? 'Signing in...' : 'Sign in' }}
                         </UButton>

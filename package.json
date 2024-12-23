@@ -25,6 +25,7 @@
         "@tailwindcss/forms": "^0.5.9",
         "@tailwindcss/typography": "^0.5.15",
         "nuxt": "^3.14.1592",
+        "nuxt-easy-lightbox": "^1.0.2",
         "pinia": "^2.3.0",
         "square": "^39.0.0",
         "vue": "^3.5.13",

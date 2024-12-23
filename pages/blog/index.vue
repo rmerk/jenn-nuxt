@@ -19,10 +19,10 @@ function handleAuthorImage(path?: string) {
 </script>
 
 <template>
-    <div class="bg-white py-12">
+    <div class="bg-cream py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-primary text-3xl font-extrabold">
+                <h1>
                     Our Blog
                 </h1>
                 <p class="mt-4 text-xl text-gray-600">
@@ -30,7 +30,7 @@ function handleAuthorImage(path?: string) {
                     bakery news
                 </p>
             </div>
-            <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <div
                     v-for="article in articles?.data"
                     :key="article.id"

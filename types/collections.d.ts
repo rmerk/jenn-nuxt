@@ -106,6 +106,7 @@ export interface Category {
   articles?: Article[] | null;
   description?: string;
   product?: Product | null;
+  galleries?: Gallery[] | null;
 };
 
 export interface Fulfillment {
@@ -120,6 +121,17 @@ export interface Fulfillment {
   shippingStatus?: "Pending" | "Shipped" | "Delivered" | "Returned" | "Cancelled";
   estimatedDeliveryDate?: Date | string;
   order?: Order | null;
+};
+
+export interface Gallery {
+  id?: number;
+  documentId?: string;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  publishedAt?: Date | string;
+  locale?: string | null;
+  images?: Media[] | null;
+  category?: Category | null;
 };
 
 export interface Global {

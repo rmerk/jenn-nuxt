@@ -32,7 +32,7 @@ async function submitForm() {
                     Contact Us
                 </h1>
 
-                <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <div class="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2">
                     <div>
                         <h2 class="text-xl font-semibold text-gray-900">
                             Visit Our Bakery

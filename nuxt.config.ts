@@ -1,7 +1,7 @@
 import process from 'node:process';
 
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/strapi', '@pinia/nuxt', '@nuxt/ui', '@nuxt/eslint', '@nuxt/fonts'],
+    modules: ['@nuxtjs/strapi', '@pinia/nuxt', '@nuxt/ui', '@nuxt/eslint', '@nuxt/fonts', 'nuxt-easy-lightbox'],
 
     $production: {
         strapi: {
