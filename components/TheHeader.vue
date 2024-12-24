@@ -13,11 +13,11 @@ const isUserMenuOpen = ref(false);
 const isMobileMenuOpen = ref(false);
 
 const navigationLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/shop', label: 'Shop' },
-    { to: '/gallery', label: 'Gallery' },
-    { to: '/blog', label: 'Blog' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/', label: 'Home', icon: 'heroicons-outline:home' },
+    { to: '/shop', label: 'Shop', icon: 'heroicons-outline:shopping-cart' },
+    { to: '/gallery', label: 'Gallery', icon: 'heroicons-outline:photo' },
+    { to: '/blog', label: 'Blog', icon: 'heroicons-outline:newspaper' },
+    { to: '/contact', label: 'Contact', icon: 'heroicons-outline:phone-outgoing' },
 ];
 
 async function handleLogout() {
@@ -51,8 +51,8 @@ onMounted(() => {
 
 <template>
     <header class="relative h-[80px]">
-        <nav class="h-inherit mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="h-inherit flex items-center justify-between">
+        <nav class="h-inherit mx-auto max-w-7xl">
+            <div class="h-inherit flex items-center justify-between px-4 sm:px-6 lg:px-8">
                 <!-- Logo -->
                 <div class="shrink-0">
                     <NuxtLink to="/" class="text-2xl font-bold text-white">
@@ -194,7 +194,7 @@ onMounted(() => {
 
             <!-- Mobile Menu -->
             <div class="md:hidden" :class="[isMobileMenuOpen ? 'block' : 'hidden']">
-                <div class="space-y-1 pb-3 pt-2">
+                <div class="space-y-1 bg-olive-600 px-6 py-4">
                     <NuxtLink
                         v-for="link in navigationLinks"
                         :key="link.to"
@@ -202,7 +202,10 @@ onMounted(() => {
                         class="block py-2 text-lg text-white"
                         @click="isMobileMenuOpen = false"
                     >
-                        {{ link.label }}
+                        <div class="flex items-center gap-3">
+                            <UIcon :name="link.icon" />
+                            {{ link.label }}
+                        </div>
                     </NuxtLink>
                 </div>
             </div>

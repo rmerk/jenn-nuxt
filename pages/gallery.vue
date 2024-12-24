@@ -9,15 +9,10 @@ const { data } = await useAsyncData(
     () => find<Gallery>('galleries', { populate: '*' }),
 );
 
-const gallery = ref(data?.value?.data);
-
-if (!gallery.value) {
-    gallery.value = [];
-}
+const gallery = ref(data?.value?.data ?? []);
 
 // State management
 const selectedCategory = ref<string | number>('All');
-// const selectedImage = ref(null);
 
 // Get unique categories from images
 const categories = computed(() => {
@@ -83,13 +78,13 @@ const onHide = () => (visibleRef.value = false);
                 <div
                     v-for="(image, index) in filteredImages as Media[]"
                     :key="image.id"
-                    class="group relative aspect-square overflow-hidden rounded-lg bg-gray-100"
+                    class="group relative aspect-square overflow-hidden rounded-lg p-3"
                     @click="showImg(index)"
                 >
                     <img
                         :src="image.url"
                         :alt="image.alternativeText"
-                        class="size-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                        class="size-full rounded object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     >
 
                     <div class="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 group-hover:bg-opacity-30">
